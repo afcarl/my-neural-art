@@ -27,9 +27,9 @@ def multiple_img():
                              join(img_path, img),
                              join(styles_path, style),
                              join(results_path, img + '_' + style[:-4]),
-                             800,
-                             tv,
-                             cont])
+                             str(800),
+                             str(tv),
+                             str(cont)])
 
 def grid_search():
     img_path = 'img/'
@@ -46,6 +46,6 @@ def grid_search():
                              join(img_path, img),
                              join(styles_path, style),
                              join(results_path, img + '_' + style[:-4]),
-                             800,
-                             tv,
-                             cont])
+                             str(800),
+                             str(tv),
+                             str(cont)])
