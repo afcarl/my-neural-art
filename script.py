@@ -48,7 +48,7 @@ def grid_search():
                           join(results_path, img) + '_' + style[:-4],
                           str(800),
                           str(tv),
-                          str(cont)]
+                          str(cont)])
             print u
             subprocess.call([)])
 
