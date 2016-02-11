@@ -50,7 +50,7 @@ def grid_search():
                           str(tv),
                           str(cont)])
             print u
-            subprocess.call([)])
+            subprocess.call([u])
 
 
 if __name__ == '__main__':
