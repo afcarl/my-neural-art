@@ -33,7 +33,7 @@ def multiple_img():
 
 def grid_search():
     img_path = 'img/'
-    img = 'einstein.jpg'
+    img = 'comp-einstein.jpg'
     styles_path = 'styles/abstract/'
     style = 'comp-vasarely1.jpg'
     results_path = 'results/'
@@ -42,7 +42,7 @@ def grid_search():
     cont_array = ([0.001, 0.01, 0.02, 0.05, 0.1, 0.5, 1.])
     for tv in tv_array:
         for cont in cont_array:
-            subprocess.call(["python neural_style_transfer",
+            subprocess.call(["my-neural-art/python neural_style_transfer.py",
                              join(img_path, img),
                              join(styles_path, style),
                              join(results_path, img + '_' + style[:-4]),
