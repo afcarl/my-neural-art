@@ -49,7 +49,7 @@ def grid_search():
                           str(800),
                           str(tv),
                           str(cont)]
-            print(u)
+            print u
             subprocess.call([)])
 
 
