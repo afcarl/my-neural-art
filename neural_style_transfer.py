@@ -68,21 +68,33 @@ parser.add_argument('style_reference_image_path', metavar='ref', type=str,
                     help='Path to the style reference image.')
 parser.add_argument('result_prefix', metavar='res_prefix', type=str,
                     help='Prefix for the saved results.')
+parser.add_argument('img_size', metavar = 'imgsize', type=int,
+                    help='Size of the generated picture')
+parser.add_argument('total_var', metavar = 'totalvar', type=float,
+                    help='Coefficient for the total variation norm')
+parser.add_argument('content', metavar = 'content', type=float,
+                    help='Coefficient for the content norm')
+
 
 args = parser.parse_args()
 base_image_path = args.base_image_path
 style_reference_image_path = args.style_reference_image_path
 result_prefix = args.result_prefix
 weights_path = 'vgg16_weights.h5'
+img_size = args.img_size
+total_var = args.total_var
+content = args.content
+
+print("data loaded")
 
 # these are the weights of the different loss components
-total_variation_weight = 1.
+total_variation_weight = total_var #1.
 style_weight = 1.
-content_weight = 0.025
+content_weight = content #0.025
 
 # dimensions of the generated picture.
-img_width = 400
-img_height = 400
+img_width = img_size
+img_height = img_size
 assert img_height == img_width, 'Due to the use of the Gram matrix, width and height must match.'
 
 # util function to open, resize and format pictures into appropriate tensors
