@@ -45,7 +45,7 @@ def grid_search():
             subprocess.call(["python my-neural-art/neural_style_transfer.py",
                              join(img_path, img),
                              join(styles_path, style),
-                             join(results_path, img + '_' + style[:-4]),
+                             join(results_path, img) + '_' + style[:-4],
                              str(800),
                              str(tv),
                              str(cont)])
