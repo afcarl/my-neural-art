@@ -32,11 +32,11 @@ def multiple_img():
                              str(cont)])
 
 def grid_search():
-    img_path = 'img/'
+    img_path = '/home/ubuntu/img/'
     img = 'comp-einstein.jpg'
-    styles_path = 'styles/abstract/'
+    styles_path = '/home/ubuntu/styles/abstract/'
     style = 'comp-vasarely1.jpg'
-    results_path = 'results/'
+    results_path = '/home/ubuntu/results/'
     
     tv_array = [0.1, 0.5, 1., 2., 5., 10.]
     cont_array = [0.001, 0.01, 0.02, 0.05, 0.1, 0.5, 1.]
