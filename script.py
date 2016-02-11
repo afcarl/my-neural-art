@@ -49,3 +49,7 @@ def grid_search():
                                        str(800),
                                        str(tv),
                                        str(cont)])])
+
+
+if __name__ == '__main__':
+    grid_search()
