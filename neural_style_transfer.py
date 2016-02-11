@@ -61,6 +61,8 @@ from keras.models import Sequential
 from keras.layers.convolutional import Convolution2D, ZeroPadding2D, MaxPooling2D
 from keras import backend as K
 
+print("test")
+
 parser = argparse.ArgumentParser(description='Neural style transfer with Keras.')
 parser.add_argument('base_image_path', metavar='base', type=str,
                     help='Path to the image to transform.')
