@@ -38,11 +38,11 @@ def grid_search():
     style = 'comp-vasarely1.jpg'
     results_path = 'results/'
     
-    tv_array = ([0.1, 0.5, 1., 2., 5., 10.])
-    cont_array = ([0.001, 0.01, 0.02, 0.05, 0.1, 0.5, 1.])
+    tv_array = [0.1, 0.5, 1., 2., 5., 10.]
+    cont_array = [0.001, 0.01, 0.02, 0.05, 0.1, 0.5, 1.]
     for tv in tv_array:
         for cont in cont_array:
-            subprocess.call(["my-neural-art/python neural_style_transfer.py",
+            subprocess.call(["python my-neural-art/neural_style_transfer.py",
                              join(img_path, img),
                              join(styles_path, style),
                              join(results_path, img + '_' + style[:-4]),
