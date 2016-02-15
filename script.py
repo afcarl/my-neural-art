@@ -37,20 +37,23 @@ def grid_search():
     styles_path = '/home/ubuntu/styles/abstract/'
     style = 'comp-vasarely1.jpg'
     results_path = '/home/ubuntu/results/'
-    
+    img_size = 400
+
     tv_array = [0.1, 0.5, 1., 2., 5., 10.]
-    cont_array = [0.001, 0.01, 0.02, 0.05, 0.1, 0.5, 1.]
-    for tv in tv_array:
-        for cont in cont_array:
+    cont_array = [10., 5.]
+
+    for cont in cont_array:
+        for tv in tv_array:    
             u = " ".join(["python /home/ubuntu/my-neural-art/neural_style_transfer.py", 
                           join(img_path, img),
                           join(styles_path, style),
-                          join(results_path, img) + '_' + style[:-4],
-                          str(800),
+                          join(results_path, img) + '_' + style[:-4] + '_' + str(tv) + '_' + str(cont),
+                          str(img_size),
                           str(tv),
                           str(cont)])
             print u
-            subprocess.call([u])
+            subprocess.call(["pwd"])
+            subprocess.call([u], shell=True)
 
 
 if __name__ == '__main__':
