@@ -1,14 +1,15 @@
 import os
 import subprocess
 import argparse
-from os.path import isfile, join
+from os.path import isfile, join, expanduser
 
 import csv
 
-IMG_PATH='img/'
-STYLES_PATH="styles/"
-STYLES_TXT="styles.txt"
-RESULTS_PATH="results"
+IMG_PATH=expanduser('~/img/')
+STYLES_PATH=expanduser("~/styles/")
+STYLES_TXT=expanduser('~/my-neural-art/styles.txt')
+RESULTS_PATH=expanduser("~/results/")
+
 def load_styles(styles_path):
     styles = {}
 
@@ -29,7 +30,7 @@ def load_styles(styles_path):
                     s[field] = default[field]
                 else:
                     print "coucou"
-                    s[field] = [float(x) for x in s[field].split(',')]
+                    s[field] = float(s[field])
         
             styles[s["style_name"]] = s
 
@@ -47,18 +48,17 @@ def artify(img, styles):
     
 
     for (x, s) in styles_param.iteritems():
-        style_path = 
         results = img+"_"+x+".png"
-        subprocess.call(["th neural_style.lua" +
+        subprocess.call(["th ~/data/neural-style/neural_style.lua" +
                          " -style_image " + join(STYLES_PATH, s["file"]) +
                          " -content_image " + join(IMG_PATH, img) +
-                         " -output_image " + join(RESULTS_PATH, results) 
+                         " -output_image " + join(RESULTS_PATH, results) +
                          " -gpu 0 " +
                          " -style_scale " + str(s["style_scale"]) +
                          " -content_weight " + str(s["content_weight"]) +
                          " -style_weight " + str(s["style_weight"]) +
-                         " -tv_weight " + str(s["tv_weight"])
-                         , shell=True])
+                         " -tv_weight " + str(s["tv_weight"])]
+                         , shell=True)
 
     return 1
     
