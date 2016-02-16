@@ -9,6 +9,7 @@ IMG_PATH=expanduser('~/img/')
 STYLES_PATH=expanduser("~/styles/")
 STYLES_TXT=expanduser('~/my-neural-art/styles.txt')
 RESULTS_PATH=expanduser("~/results/")
+IMG_SIZE=200
 
 def load_styles(styles_path):
     styles = {}
@@ -53,11 +54,16 @@ def artify(img, styles):
                          " -style_image " + join(STYLES_PATH, s["file"]) +
                          " -content_image " + join(IMG_PATH, img) +
                          " -output_image " + join(RESULTS_PATH, results) +
+                         " -image_size " + str(IMG_SIZE) + 
                          " -gpu 0 " +
+                         #" -backend cudnn " + 
+                         " -save_iter 0 " + 
                          " -style_scale " + str(s["style_scale"]) +
                          " -content_weight " + str(s["content_weight"]) +
                          " -style_weight " + str(s["style_weight"]) +
-                         " -tv_weight " + str(s["tv_weight"])]
+                         " -tv_weight " + str(s["tv_weight"]) + 
+                         " -proto_file ~/data/neural-style/models/VGG_ILSVRC_19_layers_deploy.prototxt" + 
+                         " -model_file ~/data/neural-style/models/VGG_ILSVRC_19_layers.caffemodel" ]
                          , shell=True)
 
     return 1
