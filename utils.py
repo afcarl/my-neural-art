@@ -50,7 +50,7 @@ def artify(img, styles):
 
     for (x, s) in styles_param.iteritems():
         results = img+"_"+x+".png"
-        subprocess.call(["th ~/data/neural-style/neural_style.lua" +
+        subprocess.call(["th ~/neural-style/neural_style.lua" +
                          " -style_image " + join(STYLES_PATH, s["file"]) +
                          " -content_image " + join(IMG_PATH, img) +
                          " -output_image " + join(RESULTS_PATH, results) +
@@ -62,8 +62,8 @@ def artify(img, styles):
                          " -content_weight " + str(s["content_weight"]) +
                          " -style_weight " + str(s["style_weight"]) +
                          " -tv_weight " + str(s["tv_weight"]) + 
-                         " -proto_file ~/data/neural-style/models/VGG_ILSVRC_19_layers_deploy.prototxt" + 
-                         " -model_file ~/data/neural-style/models/VGG_ILSVRC_19_layers.caffemodel" ]
+                         " -proto_file ~/neural-style/models/VGG_ILSVRC_19_layers_deploy.prototxt" + 
+                         " -model_file ~/neural-style/models/VGG_ILSVRC_19_layers.caffemodel" ]
                          , shell=True)
 
     return 1
